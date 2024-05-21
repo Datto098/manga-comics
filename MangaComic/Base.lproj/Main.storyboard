@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hbk-uZ-cVL">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tìm kiếm-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchController" customModule="MangaComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" prompt="Search" placeholder="Search by titles" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGm-Lo-Pji">
+                                <rect key="frame" x="0.0" y="50" width="393" height="90"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="TWn-Ya-xHC"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WGm-Lo-Pji" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Gp-4f-hZz"/>
+                            <constraint firstItem="WGm-Lo-Pji" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="aqw-7C-zNX"/>
+                            <constraint firstItem="WGm-Lo-Pji" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bBd-BZ-g6F"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Tìm kiếm" image="magnifyingglass.circle.fill" catalog="system" selectedImage="magnifyingglass.circle" id="aLb-Fa-4xg"/>
+                    <connections>
+                        <outlet property="searchBar" destination="WGm-Lo-Pji" id="gFu-Ov-U6f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-80" y="760"/>
+        </scene>
+        <!--Trang chủ-->
+        <scene sceneID="0eX-uE-aOC">
+            <objects>
+                <viewController id="Wvi-e2-z9p" customClass="HomeController" customModule="MangaComic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nmG-hr-pcA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wsL-fT-A5V"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Trang chủ" image="house.fill" catalog="system" selectedImage="house" id="4p1-mQ-8oa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfb-8a-au0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-819" y="760"/>
+        </scene>
+        <!--Trang cá nhân-->
+        <scene sceneID="GMG-4d-bfc">
+            <objects>
+                <viewController id="ITI-M1-d6e" customClass="ProfileController" customModule="MangaComic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cvG-1L-eLC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="x61-nL-wY7"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Trang cá nhân" image="person.crop.circle.fill" catalog="system" selectedImage="person.crop.circle" id="XGs-y8-ox5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6Q-eR-xKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662" y="753"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="HCs-55-M9h">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hbk-uZ-cVL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aTv-SK-4wr">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Wvi-e2-z9p" kind="relationship" relationship="viewControllers" id="RMs-rx-vGW"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="rzT-zu-7gH"/>
+                        <segue destination="ITI-M1-d6e" kind="relationship" relationship="viewControllers" id="NRD-Ra-2p0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWF-d6-nEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-80.152671755725194" y="-25.35211267605634"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		89BD6DF62BFC585500BA1618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF52BFC585500BA1618 /* AppDelegate.swift */; };
 		89BD6DF82BFC585500BA1618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF72BFC585500BA1618 /* SceneDelegate.swift */; };
-		89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF92BFC585500BA1618 /* ViewController.swift */; };
+		89BD6DFA2BFC585500BA1618 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF92BFC585500BA1618 /* SearchController.swift */; };
 		89BD6DFD2BFC585500BA1618 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 89BD6DFC2BFC585500BA1618 /* Base */; };
 		89BD6DFF2BFC585700BA1618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BD6DFE2BFC585700BA1618 /* Assets.xcassets */; };
 		89BD6E022BFC585700BA1618 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 89BD6E012BFC585700BA1618 /* Base */; };
@@ -21,6 +21,8 @@
 		B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CB2BFCE2E200C927FF /* FMDatabase.m */; };
 		B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */; };
 		B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */; };
+		B6DC383E2BFD13BA009B58DA /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC383D2BFD13BA009B58DA /* ProfileController.swift */; };
+		B6DC38402BFD1429009B58DA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC383F2BFD1429009B58DA /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +46,7 @@
 		89BD6DF22BFC585500BA1618 /* MangaComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BD6DF52BFC585500BA1618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BD6DF72BFC585500BA1618 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		89BD6DF92BFC585500BA1618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89BD6DF92BFC585500BA1618 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		89BD6DFC2BFC585500BA1618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89BD6DFE2BFC585700BA1618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BD6E012BFC585700BA1618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 		B67814CB2BFCE2E200C927FF /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = MangaComic/FMDB/src/FMDatabase.m; sourceTree = SOURCE_ROOT; };
 		B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = MangaComic/FMDB/src/FMDatabaseAdditions.m; sourceTree = SOURCE_ROOT; };
 		B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = MangaComic/FMDB/src/FMDatabasePool.m; sourceTree = SOURCE_ROOT; };
+		B6DC383D2BFD13BA009B58DA /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		B6DC383F2BFD1429009B58DA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +161,9 @@
 		B67814BD2BFCE25E00C927FF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				89BD6DF92BFC585500BA1618 /* ViewController.swift */,
+				89BD6DF92BFC585500BA1618 /* SearchController.swift */,
+				B6DC383D2BFD13BA009B58DA /* ProfileController.swift */,
+				B6DC383F2BFD1429009B58DA /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -344,11 +350,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */,
+				89BD6DFA2BFC585500BA1618 /* SearchController.swift in Sources */,
 				B67814CE2BFCE2E200C927FF /* FMDatabaseQueue.m in Sources */,
 				89BD6DF62BFC585500BA1618 /* AppDelegate.swift in Sources */,
 				B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */,
+				B6DC38402BFD1429009B58DA /* HomeController.swift in Sources */,
 				89BD6DF82BFC585500BA1618 /* SceneDelegate.swift in Sources */,
+				B6DC383E2BFD13BA009B58DA /* ProfileController.swift in Sources */,
 				B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */,
 				B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */,
 				B67814CF2BFCE2E200C927FF /* FMResultSet.m in Sources */,
