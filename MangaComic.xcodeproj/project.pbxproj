@@ -16,6 +16,11 @@
 		89BD6E0D2BFC585800BA1618 /* MangaComicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6E0C2BFC585800BA1618 /* MangaComicTests.swift */; };
 		89BD6E172BFC585800BA1618 /* MangaComicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6E162BFC585800BA1618 /* MangaComicUITests.swift */; };
 		89BD6E192BFC585800BA1618 /* MangaComicUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6E182BFC585800BA1618 /* MangaComicUITestsLaunchTests.swift */; };
+		B67814CE2BFCE2E200C927FF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814C62BFCE2E200C927FF /* FMDatabaseQueue.m */; };
+		B67814CF2BFCE2E200C927FF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814C92BFCE2E200C927FF /* FMResultSet.m */; };
+		B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CB2BFCE2E200C927FF /* FMDatabase.m */; };
+		B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */; };
+		B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,18 @@
 		89BD6E122BFC585800BA1618 /* MangaComicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaComicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BD6E162BFC585800BA1618 /* MangaComicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaComicUITests.swift; sourceTree = "<group>"; };
 		89BD6E182BFC585800BA1618 /* MangaComicUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaComicUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B67814C22BFCE2E100C927FF /* MangaComic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MangaComic-Bridging-Header.h"; sourceTree = "<group>"; };
+		B67814C32BFCE2E200C927FF /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = MangaComic/FMDB/src/FMDatabaseAdditions.h; sourceTree = SOURCE_ROOT; };
+		B67814C42BFCE2E200C927FF /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = MangaComic/FMDB/src/FMDatabase.h; sourceTree = SOURCE_ROOT; };
+		B67814C52BFCE2E200C927FF /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = MangaComic/FMDB/src/FMDatabaseQueue.h; sourceTree = SOURCE_ROOT; };
+		B67814C62BFCE2E200C927FF /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = MangaComic/FMDB/src/FMDatabaseQueue.m; sourceTree = SOURCE_ROOT; };
+		B67814C72BFCE2E200C927FF /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = MangaComic/FMDB/src/FMDatabasePool.h; sourceTree = SOURCE_ROOT; };
+		B67814C82BFCE2E200C927FF /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = MangaComic/FMDB/src/FMResultSet.h; sourceTree = SOURCE_ROOT; };
+		B67814C92BFCE2E200C927FF /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = MangaComic/FMDB/src/FMResultSet.m; sourceTree = SOURCE_ROOT; };
+		B67814CA2BFCE2E200C927FF /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = MangaComic/FMDB/src/FMDB.h; sourceTree = SOURCE_ROOT; };
+		B67814CB2BFCE2E200C927FF /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = MangaComic/FMDB/src/FMDatabase.m; sourceTree = SOURCE_ROOT; };
+		B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = MangaComic/FMDB/src/FMDatabaseAdditions.m; sourceTree = SOURCE_ROOT; };
+		B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = MangaComic/FMDB/src/FMDatabasePool.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +116,11 @@
 		89BD6DF42BFC585500BA1618 /* MangaComic */ = {
 			isa = PBXGroup;
 			children = (
-				89BD6DF52BFC585500BA1618 /* AppDelegate.swift */,
-				89BD6DF72BFC585500BA1618 /* SceneDelegate.swift */,
-				89BD6DF92BFC585500BA1618 /* ViewController.swift */,
+				B67814BF2BFCE27100C927FF /* FMDB */,
+				B67814BE2BFCE26900C927FF /* Models */,
+				B67814BD2BFCE25E00C927FF /* Controllers */,
+				B67814BA2BFCE23C00C927FF /* Systems */,
 				89BD6DFB2BFC585500BA1618 /* Main.storyboard */,
-				89BD6DFE2BFC585700BA1618 /* Assets.xcassets */,
-				89BD6E002BFC585700BA1618 /* LaunchScreen.storyboard */,
-				89BD6E032BFC585700BA1618 /* Info.plist */,
 			);
 			path = MangaComic;
 			sourceTree = "<group>";
@@ -125,6 +140,76 @@
 				89BD6E182BFC585800BA1618 /* MangaComicUITestsLaunchTests.swift */,
 			);
 			path = MangaComicUITests;
+			sourceTree = "<group>";
+		};
+		B67814BA2BFCE23C00C927FF /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				89BD6DFE2BFC585700BA1618 /* Assets.xcassets */,
+				89BD6E002BFC585700BA1618 /* LaunchScreen.storyboard */,
+				89BD6E032BFC585700BA1618 /* Info.plist */,
+				89BD6DF52BFC585500BA1618 /* AppDelegate.swift */,
+				89BD6DF72BFC585500BA1618 /* SceneDelegate.swift */,
+			);
+			name = Systems;
+			sourceTree = "<group>";
+		};
+		B67814BD2BFCE25E00C927FF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89BD6DF92BFC585500BA1618 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B67814BE2BFCE26900C927FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B67814BF2BFCE27100C927FF /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				B67814D32BFCE2E600C927FF /* DAL */,
+				B67814C12BFCE2C900C927FF /* fmdb framework */,
+				B67814C02BFCE27A00C927FF /* src */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		B67814C02BFCE27A00C927FF /* src */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		B67814C12BFCE2C900C927FF /* fmdb framework */ = {
+			isa = PBXGroup;
+			children = (
+				B67814C42BFCE2E200C927FF /* FMDatabase.h */,
+				B67814CB2BFCE2E200C927FF /* FMDatabase.m */,
+				B67814C32BFCE2E200C927FF /* FMDatabaseAdditions.h */,
+				B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */,
+				B67814C72BFCE2E200C927FF /* FMDatabasePool.h */,
+				B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */,
+				B67814C52BFCE2E200C927FF /* FMDatabaseQueue.h */,
+				B67814C62BFCE2E200C927FF /* FMDatabaseQueue.m */,
+				B67814CA2BFCE2E200C927FF /* FMDB.h */,
+				B67814C82BFCE2E200C927FF /* FMResultSet.h */,
+				B67814C92BFCE2E200C927FF /* FMResultSet.m */,
+				B67814C22BFCE2E100C927FF /* MangaComic-Bridging-Header.h */,
+			);
+			path = "fmdb framework";
+			sourceTree = "<group>";
+		};
+		B67814D32BFCE2E600C927FF /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DAL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +280,7 @@
 				TargetAttributes = {
 					89BD6DF12BFC585500BA1618 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 					89BD6E072BFC585800BA1618 = {
 						CreatedOnToolsVersion = 15.3;
@@ -259,8 +345,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */,
+				B67814CE2BFCE2E200C927FF /* FMDatabaseQueue.m in Sources */,
 				89BD6DF62BFC585500BA1618 /* AppDelegate.swift in Sources */,
+				B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */,
 				89BD6DF82BFC585500BA1618 /* SceneDelegate.swift in Sources */,
+				B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */,
+				B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */,
+				B67814CF2BFCE2E200C927FF /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -457,6 +549,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = manga.comic.MangaComic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MangaComic/FMDB/fmdb framework/MangaComic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -467,6 +561,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -484,6 +579,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = manga.comic.MangaComic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MangaComic/FMDB/fmdb framework/MangaComic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
