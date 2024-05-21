@@ -8,5 +8,6 @@
 import UIKit
 
 class SlideControllerCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var bannerImage: UIImageView!
     
 }
