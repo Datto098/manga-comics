@@ -23,6 +23,8 @@
 		B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */; };
 		B6DC383E2BFD13BA009B58DA /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC383D2BFD13BA009B58DA /* ProfileController.swift */; };
 		B6DC38402BFD1429009B58DA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC383F2BFD1429009B58DA /* HomeController.swift */; };
+		B6DC38422BFD5039009B58DA /* ComicBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC38412BFD5039009B58DA /* ComicBasic.swift */; };
+		B6DC38452BFD542A009B58DA /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC38442BFD542A009B58DA /* ComicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = MangaComic/FMDB/src/FMDatabasePool.m; sourceTree = SOURCE_ROOT; };
 		B6DC383D2BFD13BA009B58DA /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		B6DC383F2BFD1429009B58DA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		B6DC38412BFD5039009B58DA /* ComicBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBasic.swift; sourceTree = "<group>"; };
+		B6DC38442BFD542A009B58DA /* ComicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		89BD6DF42BFC585500BA1618 /* MangaComic */ = {
 			isa = PBXGroup;
 			children = (
+				B6DC38432BFD53B7009B58DA /* Controls */,
 				B67814BF2BFCE27100C927FF /* FMDB */,
 				B67814BE2BFCE26900C927FF /* Models */,
 				B67814BD2BFCE25E00C927FF /* Controllers */,
@@ -171,6 +176,7 @@
 		B67814BE2BFCE26900C927FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B6DC38412BFD5039009B58DA /* ComicBasic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +222,14 @@
 			children = (
 			);
 			path = DAL;
+			sourceTree = "<group>";
+		};
+		B6DC38432BFD53B7009B58DA /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				B6DC38442BFD542A009B58DA /* ComicCell.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +312,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 89BD6DED2BFC585500BA1618 /* Build configuration list for PBXProject "MangaComic" */;
+			buildConfigurationList = 89BD6DED2BFC585500BA1618 /* Build configuration list for PBXProject "	" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -359,6 +373,8 @@
 				B6DC383E2BFD13BA009B58DA /* ProfileController.swift in Sources */,
 				B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */,
 				B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */,
+				B6DC38452BFD542A009B58DA /* ComicCell.swift in Sources */,
+				B6DC38422BFD5039009B58DA /* ComicBasic.swift in Sources */,
 				B67814CF2BFCE2E200C927FF /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,7 +684,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		89BD6DED2BFC585500BA1618 /* Build configuration list for PBXProject "MangaComic" */ = {
+		89BD6DED2BFC585500BA1618 /* Build configuration list for PBXProject "	" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89BD6E1A2BFC585800BA1618 /* Debug */,
