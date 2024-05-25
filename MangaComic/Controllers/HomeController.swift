@@ -26,7 +26,7 @@ class HomeController: UIViewController {
     static var BASE_URL = "http://localhost:3000/manga"
     
     
-    
+
     
     // Danh sách ảnh của Slider
     let bannerImages = ["image1", "image2", "image3", "image4", "image5"]
@@ -74,7 +74,7 @@ class HomeController: UIViewController {
                                 dispatchGroup.enter()
                                 // Xử lý gọi api lấy danh sách comics theo thể loại
                                 let urlStringPage = "\(HomeController.BASE_URL)/genre/\(item.genre_name)"
-                                self.fetchComicData(from: urlStringPage, comicType: item.genre_name) { comicData in
+                                self.fetchComicData(from: urlStringPage, comicType: "Thể loại: \(item.genre_name)") { comicData in
                                     if let comicData = comicData {
                                         HomeController.comicDatas.append(comicData)
                                     }
