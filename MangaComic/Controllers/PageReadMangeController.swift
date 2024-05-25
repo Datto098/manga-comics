@@ -1,78 +1,74 @@
 //
-//  ViewController.swift
+//  PageReadMangeController.swift
 //  MangaComic
 //
-//  Created by dattodev on 21/05/2024.
+//  Created by tandev on 22/5/24.
 //
 
 import UIKit
-import Alamofire
 import Kingfisher
+import SkeletonView
+import os.log
 
-class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class PageReadMangeController: UIPageViewController,UIPageViewControllerDelegate,UIPageViewControllerDataSource {
+   
+    var chapter:Chapter!
+    private var myControllers = [UIViewController]()
+    private var mangaPages = [MangaPage]()
     
-    
-    var myControllers = [UIViewController]()
-    var mangaPages = [MangaPage]()
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        MangaAPI.shared.getPagesMangaWithNumberChapter(endPoint: "martial-peak-chapter-3") { pages in
+        
+        view.isSkeletonable = true
+        view.showAnimatedGradientSkeleton()
+        view.backgroundColor = .black
+        //set title
+        self.title = chapter.title
+        
+        self.dataSource = self
+        self.delegate = self
+        
+        var endPoint = chapter.endpoint.split(separator: "/").last?.trimmingCharacters(in: .whitespacesAndNewlines)
+        //endPoint = "one-piece-chapter-00"
+
+        MangaAPI.shared.getPagesMangaWithNumberChapter(endPoint: endPoint!) { pages in
             self.mangaPages = pages
-           
             // Cập nhật UI trên main thread (DispatchQueue.main.async)
             for page in self.mangaPages {
                 let vc = UIViewController()
                 vc.view.backgroundColor = .white
                 let imageView = UIImageView()
                 imageView.kf.setImage(with: URL(string: page.chapterImageLink),placeholder: UIImage(named: "placeholder"))
-                imageView.frame = vc.view.frame
+                os_log("Image link: %@", page.chapterImageLink)
+                
+                //set imageview possision X = 50
+                imageView.frame = CGRect(x: 0, y: 100, width: vc.view.frame.width - 100, height: (vc.view.frame.height - 200))
+                //center imageview
+                imageView.center = vc.view.center
+                
                 imageView.contentMode = .scaleAspectFit
                 vc.view.addSubview(imageView)
                 self.myControllers.append(vc)
+                
+            }
+           
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.view.isSkeletonable = false
+                self.view.hideSkeleton()
+                guard let first = self.myControllers.first else {
+                    return
+                }
+                self.setViewControllers([first],direction: .forward, animated: true, completion: nil)
             }
             
         }
-
-       
     }
     
-    // Khi view controller hien thi
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.presentPageVc()
-        }
-    }
-    
-    // Hien thi page view controller
-    func presentPageVc(){
-        
-        // Kiem tra xem myControllers co view controller nao khong
-        guard let first = myControllers.first else {
-            return
-        }
-        
-        let vc = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal,options: nil)
-        
-        // Set the data source for the page view controller
-        vc.dataSource = self
-        // set delegate for the page view controller
-        vc.delegate = self
-        
-        
-        //Goi ham setViewControllers de hien thi trang dau tien
-        vc.setViewControllers([first],direction: .forward, animated: true, completion: nil)
-        present(vc, animated: true, completion: nil)
-    }
-
-
     // Tra ve vỉew controller truoc do
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         // Kiem tra xem view controller hien tai co trong myControllers khong
-        
         guard let index = myControllers.firstIndex(of: viewController), index > 0 else {
             return nil
         }
@@ -92,7 +88,4 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         return myControllers[after]
     }
     
-    
-   
 }
-
