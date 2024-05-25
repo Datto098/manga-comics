@@ -10,10 +10,10 @@ import Foundation
 class ComicData {
     // MARK: properties
     private var comicType:String = ""
-    private var comics:[ComicApiResponse] = []
+    private var comics:[ComicDataByGenresApiResponse] = []
     
     // MARK: method
-    init(comicType: String, comics: [ComicApiResponse]) {
+    init(comicType: String, comics: [ComicDataByGenresApiResponse]) {
         self.comicType = comicType
         self.comics = comics
     }
@@ -22,7 +22,7 @@ class ComicData {
         return self.comicType
     }
     
-    func getComics() -> [ComicApiResponse] {
+    func getComics() -> [ComicDataByGenresApiResponse] {
         return self.comics
     }
     
@@ -30,7 +30,7 @@ class ComicData {
         self.comicType = comicType
     }
     
-    func setComics(comics:[ComicApiResponse]) -> Void {
+    func setComics(comics:[ComicDataByGenresApiResponse]) -> Void {
         self.comics = comics
     }
 }

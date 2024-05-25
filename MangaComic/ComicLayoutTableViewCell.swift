@@ -44,7 +44,7 @@ extension ComicLayoutTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         cell.comicTitle.text = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].title
         
         // Updated at
-        cell.comicDescription.text = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].updated_on
+        cell.comicDescription.text = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].chapter
         
         // Image
         if let url = URL(string: HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].thumb) {

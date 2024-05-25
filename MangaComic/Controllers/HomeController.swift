@@ -21,7 +21,10 @@ class HomeController: UIViewController {
     @IBOutlet weak var bannerSlidePageControl: UIPageControl!
     @IBOutlet weak var comicTableView: UITableView!
     var index = 0;
-    static var comicDatas:[ComicData] = []
+    static var comicDatas:[ComicData] = [] // danh sách truyện theo thể loại
+    static var mangaGenres:ComicGenresApiResponse? = nil // Các thể loại
+    static var BASE_URL = "http://localhost:3000/manga"
+    
     
     
     
@@ -44,29 +47,53 @@ class HomeController: UIViewController {
         // Xử lý sự kiện khi chạm vào các page item của Page Control
         bannerSlidePageControl.addTarget(self, action: #selector(pageControlValueChange(_:)), for: .valueChanged)
         
+        // Xử lý loading khi gọi api
+        let loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.center = view.center
+        loadingIndicator.hidesWhenStopped = true
+        view.addSubview(loadingIndicator)
         
-        // Xử lý gọi api lấy danh sách comics
-        // Gọi API cho page 1
-        let urlStringPage1 = "http://localhost:3000/manga/page/1"
-        fetchComicData(from: urlStringPage1, comicType: "Manga") { comicData in
-            if let comicData = comicData {
-                HomeController.comicDatas.append(comicData)
-                print("Call 1: \(HomeController.comicDatas.count)")
-                DispatchQueue.main.async {
-                    self.comicTableView.reloadData()
-                }
-            }
-        }
+        // Hiển thị loading indicator
+        loadingIndicator.startAnimating()
         
-        // Gọi API cho page 2
-        let urlStringPage2 = "http://localhost:3000/manga/page/2"
-        fetchComicData(from: urlStringPage2, comicType: "Manga 2") { comicData in
-            if let comicData = comicData {
-                HomeController.comicDatas.append(comicData)
-                print("Call 2: \(HomeController.comicDatas.count)")
-                DispatchQueue.main.async {
-                    self.comicTableView.reloadData()
+        // Xử lý gọi api lấy danh sách các thể loại
+        let urlGenres = "\(HomeController.BASE_URL)/genres"
+        AF.request(urlGenres, method: .get).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let comicGenres = try decoder.decode(ComicGenresApiResponse.self, from: data)
+                    if comicGenres.status == true && comicGenres.message == "success" {
+                        HomeController.mangaGenres = comicGenres
+                        
+                        if let list = HomeController.mangaGenres?.list_genre {
+                            let dispatchGroup = DispatchGroup()
+                            
+                            for item in list {
+                                dispatchGroup.enter()
+                                // Xử lý gọi api lấy danh sách comics theo thể loại
+                                let urlStringPage = "\(HomeController.BASE_URL)/genre/\(item.genre_name)"
+                                self.fetchComicData(from: urlStringPage, comicType: item.genre_name) { comicData in
+                                    if let comicData = comicData {
+                                        HomeController.comicDatas.append(comicData)
+                                    }
+                                    dispatchGroup.leave()
+                                }
+                            }
+                            // Cập nhật lại table view
+                            // Ẩn loading indicator sau khi tất cả các yêu cầu API kết thúc
+                            dispatchGroup.notify(queue: .main) {
+                                loadingIndicator.stopAnimating()
+                                self.comicTableView.reloadData()
+                            }
+                        }
+                    }
+                } catch {
+                    print("JSON parsing error: \(error.localizedDescription)")
                 }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -78,7 +105,7 @@ class HomeController: UIViewController {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let comicApiResponse = try decoder.decode(ComicApiResponse.self, from: data)
+                    let comicApiResponse = try decoder.decode(ComicDataByGenresApiResponse.self, from: data)
                     if comicApiResponse.status == true && comicApiResponse.message == "success" {
                         let comicData = ComicData(comicType: comicType, comics: [comicApiResponse])
                         completion(comicData)
@@ -126,7 +153,13 @@ class HomeController: UIViewController {
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
     UITableViewDelegate, UITableViewDataSource {
     
+    // Mỗi section chỉ lấy một row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    // Trả về số section mỗi row
+    func numberOfSections(in tableView: UITableView) -> Int {
         return HomeController.comicDatas.count
     }
     
@@ -149,6 +182,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         let headerLabel = UILabel()
         if HomeController.comicDatas.count > 0 {
+            print("section: \(section)")
             headerLabel.text = HomeController.comicDatas[section].getComicType()
         }
         headerLabel.textColor = .yellow // Đặt màu cho tiêu đề
