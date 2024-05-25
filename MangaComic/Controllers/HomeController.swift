@@ -23,10 +23,7 @@ class HomeController: UIViewController {
     var index = 0;
     static var comicDatas:[ComicData] = [] // danh sách truyện theo thể loại
     static var mangaGenres:ComicGenresApiResponse? = nil // Các thể loại
-    static var BASE_URL = "http://localhost:3000/manga"
-    
-    
-    
+    static var BASE_URL = "http://localhost:5000/manga"
     
     // Danh sách ảnh của Slider
     let bannerImages = ["image1", "image2", "image3", "image4", "image5"]
