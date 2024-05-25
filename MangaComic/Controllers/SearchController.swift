@@ -52,7 +52,7 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
 
     
     func fetchComics() {
-        ComicService.shared.fetchMultiplePages(totalPages: 5) { result in
+        ComicService.shared.fetchMultiplePages(totalPages: 26) { result in
             switch result {
             case .success(let comics):
                 print("Fetched \(comics.count) comics.")
