@@ -7,14 +7,13 @@
 
 import UIKit
 import OSLog
+import Alamofire
 
 // Tạo dữ liệu cho table view
-var comicDatas:[ComicDataResponse] = []
+
 
 
 class HomeController: UIViewController {
-    
-    
     
 
     // MARK: Properties
@@ -22,6 +21,8 @@ class HomeController: UIViewController {
     @IBOutlet weak var bannerSlidePageControl: UIPageControl!
     @IBOutlet weak var comicTableView: UITableView!
     var index = 0;
+    static var comicDatas:[ComicData] = []
+    
     
     
     // Danh sách ảnh của Slider
@@ -45,54 +46,56 @@ class HomeController: UIViewController {
         
         
         // Xử lý gọi api lấy danh sách comics
-        // Định nghĩa URL của API
-        let urlString = "http://localhost:3000/manga"
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
+        // Gọi API cho page 1
+        let urlStringPage1 = "http://localhost:3000/manga/page/1"
+        fetchComicData(from: urlStringPage1, comicType: "Manga") { comicData in
+            if let comicData = comicData {
+                HomeController.comicDatas.append(comicData)
+                print("Call 1: \(HomeController.comicDatas.count)")
+                DispatchQueue.main.async {
+                    self.comicTableView.reloadData()
+                }
+            }
         }
         
-        // Tạo một yêu cầu URL
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET" // Hoặc "POST", "PUT", "DELETE"
-
-        // Tạo một session và bắt đầu task
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-            // Xử lý lỗi nếu có
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
+        // Gọi API cho page 2
+        let urlStringPage2 = "http://localhost:3000/manga/page/2"
+        fetchComicData(from: urlStringPage2, comicType: "Manga 2") { comicData in
+            if let comicData = comicData {
+                HomeController.comicDatas.append(comicData)
+                print("Call 2: \(HomeController.comicDatas.count)")
+                DispatchQueue.main.async {
+                    self.comicTableView.reloadData()
+                }
             }
-
-            // Kiểm tra phản hồi từ server
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
-                return
-            }
-
-            // Xử lý dữ liệu nhận được
-            if let data = data {
+        }
+    }
+    
+    // Hàm để gọi API
+    func fetchComicData(from urlString: String, comicType:String ,completion: @escaping (ComicData?) -> Void) {
+        AF.request(urlString, method: .get).responseData { response in
+            switch response.result {
+            case .success(let data):
                 do {
                     let decoder = JSONDecoder()
                     let comicApiResponse = try decoder.decode(ComicApiResponse.self, from: data)
                     if comicApiResponse.status == true && comicApiResponse.message == "success" {
-                        comicDatas = (comicApiResponse.manga_list)
-                       
-                        DispatchQueue.main.async {
-                            self.comicTableView.reloadData()
-                        }
+                        let comicData = ComicData(comicType: comicType, comics: [comicApiResponse])
+                        completion(comicData)
+                    } else {
+                        completion(nil)
                     }
-                    
                 } catch {
                     print("JSON parsing error: \(error.localizedDescription)")
+                    completion(nil)
                 }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+                completion(nil)
             }
         }
-
-        // Bắt đầu task
-        task.resume()
     }
+
     
     // Hàm xử lý thay đổi giá trị của page control
     @objc func pageControlValueChange(_ sender: UIPageControl) {
@@ -118,13 +121,13 @@ class HomeController: UIViewController {
     }
 }
 
-// Mở rộng lớp HomeController
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
     UITableViewDelegate, UITableViewDataSource {
     
-    // Table view hiển thị danh sách truyện
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return HomeController.comicDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -132,20 +135,40 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.collectView.tag = indexPath.section
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return comicDatas[section].getComicType()
-//    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return comicDatas.count
-    }
+
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .black
     }
     
     
+    // Style for header Collection View
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .black
+        
+        let headerLabel = UILabel()
+        if HomeController.comicDatas.count > 0 {
+            headerLabel.text = HomeController.comicDatas[section].getComicType()
+        }
+        headerLabel.textColor = .yellow // Đặt màu cho tiêu đề
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(headerLabel)
+        // Sử dụng Auto Layout để thiết lập vị trí của headerLabel trong headerView
+        NSLayoutConstraint.activate([
+            headerLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            headerLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
+            headerLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8)
+        ])
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40 // Chiều cao của header
+    }
         
     // Collection view của banner
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

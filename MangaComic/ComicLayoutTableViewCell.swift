@@ -7,6 +7,7 @@
 
 import UIKit
 import AppTrackingTransparency
+import Kingfisher
 
 class ComicLayoutTableViewCell: UITableViewCell {
 
@@ -32,17 +33,25 @@ class ComicLayoutTableViewCell: UITableViewCell {
 // Mở rộng lớp
 extension ComicLayoutTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return comicDatas.count
+        return HomeController.comicDatas[section].getComics()[0].manga_list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardItemCell", for: indexPath) as! ComicLayoutCollectionViewCell
         
-        if let url = URL(string: comicDatas[collectionView.tag].thumb) {
-            cell.comicImage.kf = UIImage(data: image)
+        
+        // Title
+        cell.comicTitle.text = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].title
+        
+        // Updated at
+        cell.comicDescription.text = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].updated_on
+        
+        // Image
+        if let url = URL(string: HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].thumb) {
+            cell.comicImage.kf.setImage(with: url)
         }
        
-
         return cell
     }
+
 }
