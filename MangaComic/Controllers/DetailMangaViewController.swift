@@ -20,7 +20,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
     private var chapters = [Chapter]()
     var myControllers = [UIViewController]()
     var mangaPages = [MangaPage]()
-    private var endPoint:String?
+    public var endPoint:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
         view.isSkeletonable = true
         view.showAnimatedGradientSkeleton()
 
-        MangaAPI.shared.getMangaDetail(endPoint: "one-piece"){
+        MangaAPI.shared.getMangaDetail(endPoint: endPoint!){
             mangaDetail in
             DispatchQueue.main.async {
                 self.view.isSkeletonable = false
@@ -82,6 +82,12 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
         let vc = storyboard.instantiateViewController(withIdentifier: "pageReadMangaID") as! PageReadMangeController
         vc.chapter = chapter
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 }
 
