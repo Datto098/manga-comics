@@ -7,7 +7,6 @@
 
 import UIKit
 import Kingfisher
-import SkeletonView
 import os.log
 
 class PageReadMangeController: UIPageViewController,UIPageViewControllerDelegate,UIPageViewControllerDataSource {

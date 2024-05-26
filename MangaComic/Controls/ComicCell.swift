@@ -21,7 +21,7 @@ class ComicCell: UICollectionViewCell {
         comicImageView.clipsToBounds = true
     }
 
-    func setData(with comic: ComicBasic) {
+    func setData(with comic: BasicComic) {
         comicTitleLabel.text = comic.title
         if let url = URL(string: comic.thumb) {
             comicImageView.kf.setImage(with: url)

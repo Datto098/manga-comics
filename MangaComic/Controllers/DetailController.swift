@@ -9,7 +9,7 @@ import UIKit
 
 class DetailController: UIViewController {
 
-    public var detailComic : ComicBasic?
+    public var detailComic : BasicComic?
    	
     @IBOutlet weak var titleDetail: UILabel!
     override func viewDidLoad() {

@@ -15,8 +15,8 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
 
     @IBOutlet weak var searchBar: UISearchBar!
     // MARK: Variable
-    var comics = [ComicBasic]()
-    var filteredComics = [ComicBasic]()
+    var comics = [BasicComic]()
+    var filteredComics = [BasicComic]()
     private let comicDetailStoryboardID = "ComicDetail"
     var isSearching = false
     var estimateWidth = 180.0

@@ -4,7 +4,7 @@ class ComicService {
     static let shared = ComicService()
     private let baseURL = "http://localhost:5000/manga/page/"
     
-    func fetchComics(forPage page: Int, completion: @escaping (Result<[ComicBasic], Error>) -> Void) {
+    func fetchComics(forPage page: Int, completion: @escaping (Result<[BasicComic], Error>) -> Void) {
         let url = "\(baseURL)\(page)"
         AF.request(url).responseDecodable(of: ComicResponse.self) { response in
             switch response.result {
@@ -16,8 +16,8 @@ class ComicService {
         }
     }
     
-    func fetchMultiplePages(totalPages: Int, completion: @escaping (Result<[ComicBasic], Error>) -> Void) {
-        var allComics: [ComicBasic] = []
+    func fetchMultiplePages(totalPages: Int, completion: @escaping (Result<[BasicComic], Error>) -> Void) {
+        var allComics: [BasicComic] = []
         var completedRequests = 0
         var encounteredError: Error?
         
