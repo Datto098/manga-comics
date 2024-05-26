@@ -23,8 +23,7 @@
 		B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */; };
 		CC3723D22BFE45E1005CAE46 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3723D12BFE45E1005CAE46 /* Chapter.swift */; };
 		CC391CB12BFE5D9D00A71DD0 /* PageReadMangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC391CB02BFE5D9D00A71DD0 /* PageReadMangeController.swift */; };
-		CC66F5FA2BFCEC0A00985FA1 /* SplashAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC66F5F92BFCEC0A00985FA1 /* SplashAnimationViewController.swift */; };
-		CC66F5FB2BFCF4BD00985FA1 /* Lottie.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC66F5F52BFCEB5800985FA1 /* Lottie.xcframework */; };
+		CC66F5FB2BFCF4BD00985FA1 /* Lottie.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC66F5F52BFCEB5800985FA1 /* Lottie.xcframework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CC66F5FC2BFCF4BD00985FA1 /* Lottie.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC66F5F52BFCEB5800985FA1 /* Lottie.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CC66F6022BFCF8FB00985FA1 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = CC66F6012BFCF8FB00985FA1 /* splash.json */; };
 		CC6828C42BFDF78800AD70BE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CC6828C32BFDF78800AD70BE /* Alamofire */; };
@@ -33,7 +32,11 @@
 		CC6828CB2BFDF9EB00AD70BE /* MangaEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6828CA2BFDF9EB00AD70BE /* MangaEndpoint.swift */; };
 		CC6828D12BFDFB9D00AD70BE /* MangaPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6828D02BFDFB9D00AD70BE /* MangaPage.swift */; };
 		CC6828D32BFE000100AD70BE /* ChapterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6828D22BFE000100AD70BE /* ChapterResponse.swift */; };
-		CC6828D62BFE093E00AD70BE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CC6828D52BFE093E00AD70BE /* Kingfisher */; };
+		CC6828D62BFE093E00AD70BE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CC6828D52BFE093E00AD70BE /* Kingfisher */; settings = {ATTRIBUTES = (Required, ); }; };
+		CC6A514A2C0197DE00161D0F /* BookmarkMangaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A51492C0197DE00161D0F /* BookmarkMangaTableViewController.swift */; };
+		CC6A514C2C0198BB00161D0F /* ComicBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A514B2C0198BB00161D0F /* ComicBasic.swift */; };
+		CC6A514E2C01999900161D0F /* MangaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A514D2C01999900161D0F /* MangaCell.swift */; };
+		CC715F2F2C021FA200E7F41D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC715F2E2C021FA200E7F41D /* Database.swift */; };
 		CC7665152BFE37C50060E1A7 /* DetailMangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7665142BFE37C50060E1A7 /* DetailMangaViewController.swift */; };
 		CC7665182BFE3C340060E1A7 /* MangaChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7665172BFE3C340060E1A7 /* MangaChapterCell.swift */; };
 		CCD929012C009D20006F550C /* MangaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD929002C009D20006F550C /* MangaDetail.swift */; };
@@ -100,12 +103,15 @@
 		CC3723D12BFE45E1005CAE46 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = MangaComic/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		CC391CB02BFE5D9D00A71DD0 /* PageReadMangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReadMangeController.swift; sourceTree = "<group>"; };
 		CC66F5F52BFCEB5800985FA1 /* Lottie.xcframework */ = {isa = PBXFileReference; expectedSignature = "SelfSigned:892F1B43047B50538F2F46EAD92900DD3D4811F3582178C061A5FB20F111CB26"; lastKnownFileType = wrapper.xcframework; name = Lottie.xcframework; path = ../../../../Downloads/Lottie.xcframework; sourceTree = "<group>"; };
-		CC66F5F92BFCEC0A00985FA1 /* SplashAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationViewController.swift; sourceTree = "<group>"; };
 		CC66F6012BFCF8FB00985FA1 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		CC6828C82BFDF9CA00AD70BE /* MangaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaAPI.swift; sourceTree = "<group>"; };
 		CC6828CA2BFDF9EB00AD70BE /* MangaEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaEndpoint.swift; sourceTree = "<group>"; };
 		CC6828D02BFDFB9D00AD70BE /* MangaPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MangaPage.swift; path = MangaComic/Networking/MangaPage.swift; sourceTree = SOURCE_ROOT; };
 		CC6828D22BFE000100AD70BE /* ChapterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChapterResponse.swift; path = MangaComic/Networking/ChapterResponse.swift; sourceTree = SOURCE_ROOT; };
+		CC6A51492C0197DE00161D0F /* BookmarkMangaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkMangaTableViewController.swift; sourceTree = "<group>"; };
+		CC6A514B2C0198BB00161D0F /* ComicBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComicBasic.swift; path = MangaComic/Controllers/ComicBasic.swift; sourceTree = SOURCE_ROOT; };
+		CC6A514D2C01999900161D0F /* MangaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaCell.swift; sourceTree = "<group>"; };
+		CC715F2E2C021FA200E7F41D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = SOURCE_ROOT; };
 		CC7665142BFE37C50060E1A7 /* DetailMangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMangaViewController.swift; sourceTree = "<group>"; };
 		CC7665172BFE3C340060E1A7 /* MangaChapterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaChapterCell.swift; sourceTree = "<group>"; };
 		CCD929002C009D20006F550C /* MangaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MangaDetail.swift; path = MangaComic/Controllers/MangaDetail.swift; sourceTree = SOURCE_ROOT; };
@@ -210,9 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				89BD6DF92BFC585500BA1618 /* ViewController.swift */,
-				CC66F5F92BFCEC0A00985FA1 /* SplashAnimationViewController.swift */,
 				CC7665142BFE37C50060E1A7 /* DetailMangaViewController.swift */,
 				CC391CB02BFE5D9D00A71DD0 /* PageReadMangeController.swift */,
+				CC6A51492C0197DE00161D0F /* BookmarkMangaTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				CC6828D22BFE000100AD70BE /* ChapterResponse.swift */,
 				CC3723D12BFE45E1005CAE46 /* Chapter.swift */,
 				CCD929002C009D20006F550C /* MangaDetail.swift */,
+				CC6A514B2C0198BB00161D0F /* ComicBasic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 		B67814D32BFCE2E600C927FF /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				CC715F2E2C021FA200E7F41D /* Database.swift */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				CC7665172BFE3C340060E1A7 /* MangaChapterCell.swift */,
+				CC6A514D2C01999900161D0F /* MangaCell.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -396,7 +405,6 @@
 				CC6828C22BFDF44500AD70BE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CC6828D42BFE090100AD70BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CCD929022C00A129006F550C /* XCRemoteSwiftPackageReference "SkeletonView" */,
-				CC6A51442C01847C00161D0F /* XCRemoteSwiftPackageReference "Monitor" */,
 			);
 			productRefGroup = 89BD6DF32BFC585500BA1618 /* Products */;
 			projectDirPath = "";
@@ -442,20 +450,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6A514A2C0197DE00161D0F /* BookmarkMangaTableViewController.swift in Sources */,
 				CC391CB12BFE5D9D00A71DD0 /* PageReadMangeController.swift in Sources */,
 				CC3723D22BFE45E1005CAE46 /* Chapter.swift in Sources */,
 				89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */,
 				CC7665152BFE37C50060E1A7 /* DetailMangaViewController.swift in Sources */,
+				CC6A514E2C01999900161D0F /* MangaCell.swift in Sources */,
 				B67814CE2BFCE2E200C927FF /* FMDatabaseQueue.m in Sources */,
 				CC6828D32BFE000100AD70BE /* ChapterResponse.swift in Sources */,
 				CCD929012C009D20006F550C /* MangaDetail.swift in Sources */,
 				CC6828D12BFDFB9D00AD70BE /* MangaPage.swift in Sources */,
 				89BD6DF62BFC585500BA1618 /* AppDelegate.swift in Sources */,
 				B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */,
+				CC715F2F2C021FA200E7F41D /* Database.swift in Sources */,
 				89BD6DF82BFC585500BA1618 /* SceneDelegate.swift in Sources */,
+				CC6A514C2C0198BB00161D0F /* ComicBasic.swift in Sources */,
 				B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */,
 				CC6828C92BFDF9CA00AD70BE /* MangaAPI.swift in Sources */,
-				CC66F5FA2BFCEC0A00985FA1 /* SplashAnimationViewController.swift in Sources */,
 				CC7665182BFE3C340060E1A7 /* MangaChapterCell.swift in Sources */,
 				B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */,
 				B67814CF2BFCE2E200C927FF /* FMResultSet.m in Sources */,
@@ -567,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -624,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -823,14 +834,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.11.0;
-			};
-		};
-		CC6A51442C01847C00161D0F /* XCRemoteSwiftPackageReference "Monitor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BilalReffas/Monitor";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		CCD929022C00A129006F550C /* XCRemoteSwiftPackageReference "SkeletonView" */ = {

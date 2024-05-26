@@ -16,16 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spash-2" translatesAutoresizingMaskIntoConstraints="NO" id="2aE-RW-Hsw">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2aE-RW-Hsw" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="FIW-Fq-xir"/>
+                            <constraint firstAttribute="bottom" secondItem="2aE-RW-Hsw" secondAttribute="bottom" id="MMw-T8-ZTl"/>
+                            <constraint firstItem="2aE-RW-Hsw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Pu4-bO-DKB"/>
+                            <constraint firstItem="2aE-RW-Hsw" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wUq-Xi-UNn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="spash-2" width="266.66665649414062" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

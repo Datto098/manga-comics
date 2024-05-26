@@ -33,9 +33,11 @@ class MangaAPI {
                 completion(mangaDetail) // Gọi completion handler với đối tượng MangaDetail
             case .failure(let error):
                 print("Error: \(error)")
-                completion(MangaDetail(title: "", banner: "", chapters: [])) // Gọi completion handler với đối tượng MangaDetail rỗng trong trường hợp lỗi
+                completion(MangaDetail(title: "", banner: "", chapters: [],endpoint: "")) // Gọi completion handler với đối tượng MangaDetail rỗng trong trường hợp lỗi
             }
         }
     }
+    
+   
 }
 

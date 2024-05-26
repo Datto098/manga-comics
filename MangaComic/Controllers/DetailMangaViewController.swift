@@ -15,28 +15,45 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableMangas: UITableView!
     @IBOutlet weak var banner:UIImageView!
     @IBOutlet weak var titleManga:UILabel!
+    @IBOutlet weak var bookmark:UIButton!
     
     private var mangaDetail: MangaDetail?
     private var chapters = [Chapter]()
     var myControllers = [UIViewController]()
     var mangaPages = [MangaPage]()
-    private var endPoint:String?
+    public var endPoint:String?
+    private var dao:Database = Database()
+    private var isBookmark = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         view.isSkeletonable = true
         view.showAnimatedGradientSkeleton()
-
-        MangaAPI.shared.getMangaDetail(endPoint: "one-piece"){
+        
+        guard let endPoint = endPoint else {
+            return
+        }
+        
+        MangaAPI.shared.getMangaDetail(endPoint: endPoint){
             mangaDetail in
             DispatchQueue.main.async {
+               
+                if (self.dao.isBookmarked(endPoint: mangaDetail.endpoint)){
+                    self.bookmark.isEnabled = false
+                    self.bookmark.backgroundColor = .gray
+                    self.isBookmark = true
+                }
+                
                 self.view.isSkeletonable = false
                 self.view.hideSkeleton()
+                
                 self.mangaDetail = mangaDetail
                 self.chapters = mangaDetail.chapters
                 self.titleManga.text = mangaDetail.title
                 self.banner.kf.setImage(with: URL(string: mangaDetail.banner))
+                
                 self.tableMangas.reloadData()
             }
         }
@@ -45,6 +62,24 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
        
     }
     
+    // bookmark
+    
+    @IBAction func addBookmark(_ sender: UIButton) {
+        if (!isBookmark){
+            if let mangaDetail = mangaDetail {
+                let comic = ComicBasic(title: mangaDetail.title, thumb: mangaDetail.banner, endpoint: mangaDetail.endpoint)
+                let ok = dao.insert(comicBasic: comic)
+                if (ok){
+                    sender.isEnabled = false
+                    sender.backgroundColor = .gray
+                }
+            }
+            
+            isBookmark = true
+           
+        }
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chapters.count
