@@ -18,6 +18,5 @@ class BaseRequestService {
             }
     }
     
-    // Bạn có thể thêm các hàm khác cho các phương thức POST, PUT, DELETE, v.v.
 }
 

@@ -1,8 +1,15 @@
+//
+//  ComicService.swift
+//  MangaComic
+//
+//  Created by Chiendevj on 23/05/2024.
+//
+
 import Alamofire
 
 class ComicService {
     static let shared = ComicService()
-    private let baseURL = "http://localhost:5000/manga/page/"
+    private let baseURL = "http://localhost:3000/manga/page/"
     
     func fetchComics(forPage page: Int, completion: @escaping (Result<[BasicComic], Error>) -> Void) {
         let url = "\(baseURL)\(page)"
