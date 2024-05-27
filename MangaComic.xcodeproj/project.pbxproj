@@ -215,6 +215,7 @@
 		8925D36A2C01982E00434B50 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				895B9B2B2C0238FE008C4BC5 /* Chapter.swift */,
 				890029C72BFDFC3D00DB1BA1 /* ComicData.swift */,
 				8989D71C2BFE395000C439FF /* ComicsApiResponse.swift */,
 				8989D71E2BFE39CA00C439FF /* ComicDataResponse.swift */,
@@ -293,7 +294,6 @@
 				B67814BD2BFCE25E00C927FF /* Controllers */,
 				B67814BA2BFCE23C00C927FF /* Systems */,
 				89BD6DFB2BFC585500BA1618 /* Main.storyboard */,
-				895B9B2B2C0238FE008C4BC5 /* Chapter.swift */,
 			);
 			path = MangaComic;
 			sourceTree = "<group>";
