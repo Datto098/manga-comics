@@ -2,27 +2,24 @@
 //  SearchController.swift
 //  MangaComic
 //
-//  Created by Chiendevj on 21/05/2024.
+//  Created by Chiendevj on 23/05/2024.
 //
-
 import UIKit
 
-class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class SearchController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
      
     // MARK: Properties
     
     @IBOutlet weak var comicCollectionView: UICollectionView!
-
     @IBOutlet weak var searchBar: UISearchBar!
-    // MARK: Variable
-    var comics = [BasicComic]()
-    var filteredComics = [BasicComic]()
-    private let comicDetailStoryboardID = "ComicDetail"
-    var isSearching = false
-    var estimateWidth = 180.0
-    var estimateHeight = 270.0
-    var spacing = 20.0
-    let comicService = ComicService()
+    
+    private var comics = [BasicComic]()
+    private var filteredComics = [BasicComic]()
+    private let comicDetailStoryboardID = "detailMangaID"
+    private var isSearching = false
+    private var spacing = 10.0
+    private let comicService = ComicService()
+    private let numberPage = 10
     
     // MARK: Function
     override func viewDidLoad() {
@@ -45,14 +42,13 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
     }
 
     func setUpGridView() {
-            let layout = comicCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
-            layout.minimumInteritemSpacing = CGFloat(spacing)
-            layout.minimumLineSpacing = CGFloat(spacing)
-        }
-
+        let layout = comicCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = CGFloat(spacing)
+        layout.minimumLineSpacing = CGFloat(spacing)
+    }
     
     func fetchComics() {
-        ComicService.shared.fetchMultiplePages(totalPages: 26) { result in
+        ComicService.shared.fetchMultiplePages(totalPages: numberPage) { result in
             switch result {
             case .success(let comics):
                 print("Fetched \(comics.count) comics.")
@@ -66,7 +62,6 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
                 print("Failed to fetch comics: \(error)")
             }
         }
-
     }
 
     // MARK: UISearchBarDelegate Methods
@@ -76,8 +71,9 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
             filteredComics = comics
         } else {
             isSearching = true
-            filteredComics = comics.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+            filteredComics = comics.filter { comic in comic.title.lowercased().contains(searchText.lowercased()) }
         }
+      
         comicCollectionView.reloadData()
     }
 
@@ -90,10 +86,11 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
         searchBar.resignFirstResponder()
         isSearching = false
         filteredComics = comics
+         
         comicCollectionView.reloadData()
     }
 
-    // MARK: UICollectionViewDelegateFlowLayout Methods & UICollectionViewDataResource Methods
+    // MARK: UICollectionViewDelegateFlowLayout Methods & UICollectionViewDataSource Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredComics.count
     }
@@ -106,20 +103,17 @@ class SearchController:UIViewController, UISearchBarDelegate, UICollectionViewDa
             return cell
         }
         
-        // Lỗi nghiêm trọng => dùng fatalError
         fatalError("Don't create a cell!")
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print("click")
-        if let detailController = self.storyboard!.instantiateViewController(withIdentifier: comicDetailStoryboardID) as? DetailController {
-            
-            detailController.detailComic = filteredComics[indexPath.row]
-        
-            // Hiển thị màn hình MealDetailController
-            present(detailController, animated: true)
-           
+        if let detailController = self.storyboard?.instantiateViewController(withIdentifier: comicDetailStoryboardID) as? DetailMangaViewController {
+            let endpoint = filteredComics[indexPath.row].endpoint.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "manga/").last!
+            print("Chuỗi đã xử lý \(endpoint)")
+            detailController.endPoint = endpoint
+            let navigationController = UINavigationController(rootViewController: detailController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true)
         }
     }
-
 }
