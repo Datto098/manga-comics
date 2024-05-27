@@ -263,6 +263,10 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="z8j-GX-igO" id="9nV-lA-VUb"/>
                                 </connections>
@@ -291,7 +295,7 @@
                                                         <constraint firstAttribute="height" constant="165" id="cFN-yE-70l"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFE-J1-oUg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TItle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFE-J1-oUg">
                                                     <rect key="frame" x="8" y="140" width="157" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="7oj-Sy-MTP"/>
@@ -300,7 +304,7 @@
                                                     <color key="textColor" systemColor="systemGray6Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-qn-Dcx" userLabel="Comic Type">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-qn-Dcx" userLabel="Comic Type">
                                                     <rect key="frame" x="8" y="165" width="157" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="jif-IN-HXe"/>
