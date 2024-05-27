@@ -55,7 +55,27 @@ extension ComicLayoutTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        if let detailController = parentViewController?.storyboard?.instantiateViewController(withIdentifier: "detailMangaID") as? DetailMangaViewController {
+            let endpoint = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].endpoint.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "manga/").last!
+            print("Chuỗi đã xử lý \(endpoint)")
+            detailController.endPoint = endpoint
+            let navigationController = UINavigationController(rootViewController: detailController)
+            navigationController.modalPresentationStyle = .fullScreen
+            parentViewController?.present(navigationController, animated: true)
+        }
     }
+}
 
+// Extension để lấy view controller cha của UITableViewCell
+extension UIView {
+    var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while let nextResponder = parentResponder?.next {
+            parentResponder = nextResponder
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
 }
