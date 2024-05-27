@@ -10,7 +10,7 @@ class ComicCell: UICollectionViewCell {
         super.awakeFromNib()
 
         // Set desired corner radius for rounded corners
-        comicImageView.layer.cornerRadius = 20.0  // Adjust as needed
+        // comicImageView.layer.cornerRadius = 20.0  // Adjust as needed
 
         // Add a shadow for a subtle lifting effect
         comicImageView.layer.shadowOffset = CGSize(width: 2, height: 2)
