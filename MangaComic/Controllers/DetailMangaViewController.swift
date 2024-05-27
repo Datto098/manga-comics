@@ -25,7 +25,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         view.isSkeletonable = true
         view.showAnimatedGradientSkeleton()
 

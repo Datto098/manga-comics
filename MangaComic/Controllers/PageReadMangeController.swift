@@ -29,6 +29,7 @@ class PageReadMangeController: UIPageViewController,UIPageViewControllerDelegate
         self.delegate = self
         
         let endPoint = chapter.endpoint.split(separator: "/").last?.trimmingCharacters(in: .whitespacesAndNewlines)
+        print("endPoint: \(String(describing: endPoint))")
         //endPoint = "one-piece-chapter-00"
 
         MangaAPI.shared.getPagesMangaWithNumberChapter(endPoint: endPoint!) { pages in
