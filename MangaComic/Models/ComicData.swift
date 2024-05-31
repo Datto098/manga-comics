@@ -33,4 +33,8 @@ class ComicData {
     func setComics(comics:[ComicDataByGenresApiResponse]) -> Void {
         self.comics = comics
     }
+    
+    func logInfo() {
+        print("Type: \(comicType), comics: \(comics[0].manga_list.count)")
+    }
 }

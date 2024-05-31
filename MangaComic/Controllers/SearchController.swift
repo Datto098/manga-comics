@@ -16,9 +16,8 @@ class SearchController: UIViewController, UISearchBarDelegate, UICollectionViewD
     private var comics = [BasicComic]()
     private var filteredComics = [BasicComic]()
     private let comicDetailStoryboardID = "detailMangaID"
-    private var isSearching = false
     private var spacing = 10.0
-    private let comicService = ComicService()
+//    private let comicService = ComicService()
     private let numberPage = 10
     
     // MARK: Function
@@ -30,36 +29,22 @@ class SearchController: UIViewController, UISearchBarDelegate, UICollectionViewD
         self.comicCollectionView.delegate = self
         
         fetchComics()
-        self.setUpGridView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.setUpGridView()
-        DispatchQueue.main.async {
-            self.comicCollectionView.reloadData()
-        }
+        self.setUpView()
     }
 
-    func setUpGridView() {
+    func setUpView() {
         let layout = comicCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumInteritemSpacing = CGFloat(spacing)
         layout.minimumLineSpacing = CGFloat(spacing)
     }
     
     func fetchComics() {
-        ComicService.shared.fetchMultiplePages(totalPages: numberPage) { result in
-            switch result {
-            case .success(let comics):
-                print("Fetched \(comics.count) comics.")
-                // Do something with the comics
-                self.comics = comics
-                self.filteredComics = comics
-                DispatchQueue.main.async {
-                    self.comicCollectionView.reloadData()
-                }
-            case .failure(let error):
-                print("Failed to fetch comics: \(error)")
+        ComicService.shared.fetchMultiplePages(totalPages: numberPage) { comics in
+            print("Fetched \(comics.count) comics.")
+            self.comics = comics
+            self.filteredComics = comics
+            DispatchQueue.main.async {
+                self.comicCollectionView.reloadData()
             }
         }
     }
@@ -67,10 +52,8 @@ class SearchController: UIViewController, UISearchBarDelegate, UICollectionViewD
     // MARK: UISearchBarDelegate Methods
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            isSearching = false
             filteredComics = comics
         } else {
-            isSearching = true
             filteredComics = comics.filter { comic in comic.title.lowercased().contains(searchText.lowercased()) }
         }
       
@@ -84,7 +67,6 @@ class SearchController: UIViewController, UISearchBarDelegate, UICollectionViewD
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
-        isSearching = false
         filteredComics = comics
          
         comicCollectionView.reloadData()

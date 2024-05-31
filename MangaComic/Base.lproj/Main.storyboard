@@ -605,13 +605,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oN2-cM-ITQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oN2-cM-ITQ">
                                 <rect key="frame" x="16" y="307" width="200" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="v5c-ek-loS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="0.97611048339999995" blue="0.075173036979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kingfisher-4.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fBk-nS-09e">
@@ -650,7 +650,7 @@
                             <constraint firstItem="ZHh-iy-KW1" firstAttribute="top" secondItem="oN2-cM-ITQ" secondAttribute="bottom" constant="20" id="yi2-5k-oC6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2rd-sz-2au">
+                    <navigationItem key="navigationItem" style="editor" id="2rd-sz-2au">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="YpM-ro-bmm">
                             <color key="tintColor" red="1" green="0.97611048339999995" blue="0.075173036979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

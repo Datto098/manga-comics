@@ -19,23 +19,15 @@ class BasicComic: Decodable {
         self.endpoint = endpoint
     }
 
-    // Implement init(from decoder: Decoder) required by Decodable protocol
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.thumb = try container.decode(String.self, forKey: .thumb)
-        self.type = try container.decode(String.self, forKey: .type)
-        self.endpoint = try container.decode(String.self, forKey: .endpoint)
-    }
-
-    // CodingKeys enum to specify the keys used for decoding
+    // Ánh xạ
     private enum CodingKeys: String, CodingKey {
-        case title
-        case thumb
-        case type
-        case endpoint
+        case title = "title"
+        case thumb = "thumb"
+        case type = "type"
+        case endpoint = "endpoint"
     }
 }
+
 struct ComicResponse: Decodable {
     let manga_list: [BasicComic]
 }

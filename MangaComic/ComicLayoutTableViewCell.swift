@@ -30,7 +30,7 @@ class ComicLayoutTableViewCell: UITableViewCell {
 
 }
 
-// Mở rộng lớp
+
 extension ComicLayoutTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return HomeController.comicDatas[section].getComics()[0].manga_list.count
@@ -50,6 +50,7 @@ extension ComicLayoutTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         if let url = URL(string: HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].thumb) {
             cell.comicImage.kf.setImage(with: url)
         }
+    
        
         return cell
     }
@@ -57,7 +58,6 @@ extension ComicLayoutTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let detailController = parentViewController?.storyboard?.instantiateViewController(withIdentifier: "detailMangaID") as? DetailMangaViewController {
             let endpoint = HomeController.comicDatas[collectionView.tag].getComics()[0].manga_list[indexPath.row].endpoint.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "manga/").last!
-            print("Chuỗi đã xử lý \(endpoint)")
             detailController.endPoint = endpoint
             let navigationController = UINavigationController(rootViewController: detailController)
             navigationController.modalPresentationStyle = .fullScreen

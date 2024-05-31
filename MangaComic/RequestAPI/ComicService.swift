@@ -1,49 +1,34 @@
-//
-//  ComicService.swift
-//  MangaComic
-//
-//  Created by Chiendevj on 23/05/2024.
-//
-
 import Alamofire
 
 class ComicService {
     static let shared = ComicService()
     private let baseURL = "http://localhost:5000/manga/page/"
     
-    func fetchComics(forPage page: Int, completion: @escaping (Result<[BasicComic], Error>) -> Void) {
+    func fetchComics(forPage page: Int, completion: @escaping ([BasicComic]) -> Void) {
         let url = "\(baseURL)\(page)"
         AF.request(url).responseDecodable(of: ComicResponse.self) { response in
             switch response.result {
             case .success(let comicResponse):
-                completion(.success(comicResponse.manga_list))
+//                print(comicResponse.manga_list[0])
+                completion(comicResponse.manga_list)
             case .failure(let error):
-                completion(.failure(error))
+                print("Failed to fetch comics for page \(page): \(error)")
+                completion([])
             }
         }
     }
     
-    func fetchMultiplePages(totalPages: Int, completion: @escaping (Result<[BasicComic], Error>) -> Void) {
+    func fetchMultiplePages(totalPages: Int, completion: @escaping ([BasicComic]) -> Void) {
         var allComics: [BasicComic] = []
         var completedRequests = 0
-        var encounteredError: Error?
         
         for page in 1...totalPages {
-            fetchComics(forPage: page) { result in
+            fetchComics(forPage: page) { comics in
                 completedRequests += 1
-                switch result {
-                case .success(let comics):
-                    allComics.append(contentsOf: comics)
-                case .failure(let error):
-                    encounteredError = error
-                }
+                allComics.append(contentsOf: comics)
                 
                 if completedRequests == totalPages {
-                    if let error = encounteredError {
-                        completion(.failure(error))
-                    } else {
-                        completion(.success(allComics))
-                    }
+                    completion(allComics)
                 }
             }
         }

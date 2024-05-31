@@ -13,4 +13,5 @@ class ComicDataByGenres:Codable {
     var type:String = ""
     var endpoint:String = ""
     var chapter:String = ""
-}
+    var rating:String = ""
+}	
