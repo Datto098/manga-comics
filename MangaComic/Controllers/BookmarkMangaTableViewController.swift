@@ -6,7 +6,7 @@ import SkeletonView
 class BookmarkMangaTableViewController: UITableViewController {
 
     @IBOutlet weak var navigation: UINavigationItem!
-    private var bookmarkedMangas = [ComicBasic]()
+    private var bookmarkedMangas = [BasicComic]()
     private var dao:Database = Database()
     
     override func viewDidLoad() {

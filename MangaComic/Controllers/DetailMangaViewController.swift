@@ -8,8 +8,7 @@
 import UIKit
 import SkeletonView
 
-class DetailMangaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-   
+class DetailMangaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var tableMangas: UITableView!
@@ -24,6 +23,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
     public var endPoint:String?
     private var dao:Database = Database()
     private var isBookmark = false
+    static var chapterSave: [[String: Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +57,17 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
                 self.tableMangas.reloadData()
             }
         }
+        
         tableMangas.dataSource = self
         tableMangas.delegate = self
-       
+
+        // Đọc danh sách chapter đã lưu
+        // Đường dẫn tới thư mục Documents của ứng dụng
+        if let loadedChapters = loadChaptersFromJSON() {
+            DetailMangaViewController.chapterSave = loadedChapters
+        } else {
+            DetailMangaViewController.chapterSave = []
+        }
     }
     
     // bookmark
@@ -67,7 +75,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func addBookmark(_ sender: UIButton) {
         if (!isBookmark){
             if let mangaDetail = mangaDetail {
-                let comic = ComicBasic(title: mangaDetail.title, thumb: mangaDetail.banner, endpoint: mangaDetail.endpoint)
+                let comic = BasicComic(title: mangaDetail.title, thumb: mangaDetail.banner, type: "", endpoint: mangaDetail.endpoint)
                 let ok = dao.insert(comicBasic: comic)
                 if (ok){
                     sender.isEnabled = false
@@ -76,11 +84,56 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
             }
             
             isBookmark = true
-           
+            
         }
+    }
         
+    // Lưu chapter
+    func saveChaptersToJSON(chapters: [[String: Any]]) {
+        // Đường dẫn tới thư mục Documents của ứng dụng
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let documentDirectory = urls.first else { return }
+
+        // Đường dẫn tới file JSON
+        let fileURL = documentDirectory.appendingPathComponent("chapters.json")
+
+        do {
+            // Chuyển đổi dữ liệu thành JSON
+            let jsonData = try JSONSerialization.data(withJSONObject: chapters, options: .prettyPrinted)
+            
+            // Ghi dữ liệu vào file
+            try jsonData.write(to: fileURL)
+            print("Dữ liệu đã được lưu vào file JSON")
+        } catch {
+            print("Lỗi khi lưu dữ liệu: \(error.localizedDescription)")
+        }
     }
     
+    // Đọc dữ liệu chapter đã lưu
+    func loadChaptersFromJSON() -> [[String: Any]]? {
+        // Đường dẫn tới thư mục Documents của ứng dụng
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let documentDirectory = urls.first else { return nil }
+
+        // Đường dẫn tới file JSON
+        let fileURL = documentDirectory.appendingPathComponent("chapters.json")
+
+        do {
+            // Đọc dữ liệu từ file
+            let data = try Data(contentsOf: fileURL)
+            
+            // Chuyển đổi dữ liệu từ JSON thành mảng các dictionary
+            if let chapters = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                return chapters
+            }
+        } catch {
+            print("Lỗi khi đọc dữ liệu: \(error.localizedDescription)")
+        }
+        return nil
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chapters.count
     }
@@ -103,20 +156,51 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    // ham xu ly khi click vao cell
-    @objc func tapChapter(_ sender: UITapGestureRecognizer){
-
-        //get chapter
+    @objc func tapChapter(_ sender: UITapGestureRecognizer) {
+        // get chapter
         guard let cell = sender.view as? MangaChapterCell else {
             return
         }
         
-        let indexPath = tableMangas.indexPath(for: cell)
-        let chapter = chapters[indexPath!.row]
+        guard let indexPath = tableMangas.indexPath(for: cell) else { return }
+        let chapter = chapters[indexPath.row]
+        var currentChapterImage = 0
+        var saveMore = true
+        
+        // Kiểm tra chapter đã lưu hay chưa khi người dùng đọc
+        if DetailMangaViewController.chapterSave.count > 0 {
+            for chap in DetailMangaViewController.chapterSave {
+                if let title = chap["title"] as? String, let id = chap["id"] as? String, let image = chap["image"] as? Int {
+            
+                    if title == chapter.title && id == chapter.endpoint {
+                        // Lấy dữ liệu chapter đã lưu
+                        currentChapterImage = image
+                        saveMore = false
+                        break
+                    }
+                }
+            }
+            
+            if saveMore {
+                DetailMangaViewController.chapterSave.append(["title": chapter.title, "id": chapter.endpoint, "image": 0])
+                saveChaptersToJSON(chapters: DetailMangaViewController.chapterSave)
+            }
+        } else {
+            DetailMangaViewController.chapterSave.append(["title": chapter.title, "id": chapter.endpoint, "image": 0])
+            saveChaptersToJSON(chapters: DetailMangaViewController.chapterSave)
+        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "pageReadMangaID") as! PageReadMangeController
         vc.chapter = chapter
+        vc.currentImageId = currentChapterImage
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 }
 

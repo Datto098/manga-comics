@@ -1,5 +1,5 @@
 {
-  "originHash" : "86313b43bcdac66e07710e7f8d22c59266c76d795b9d4b86bdcebdbe74a3c31f",
+  "originHash" : "3b1ec988e407c586df1a586cf6348d64ab2be51219719019bfbd4d299d5c102e",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -13,16 +13,25 @@
     {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
         "revision" : "5b92f029fab2cce44386d28588098b5be0824ef5",
         "version" : "7.11.0"
       }
     },
     {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "769b88d83a42ca8d5572b020c96f47e3690b3796",
+        "version" : "4.4.3"
+      }
+    },
+    {
       "identity" : "skeletonview",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Juanpe/SkeletonView.git",
+      "location" : "https://github.com/Juanpe/SkeletonView",
       "state" : {
         "revision" : "2f5274827d310e32c09325dd3e0007120940988e",
         "version" : "1.31.0"

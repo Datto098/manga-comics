@@ -75,7 +75,7 @@ class Database {
     
     //MARK: Cac ham api cua co so du lieu
     //1. Them moi 1 ban ghi
-    func insert(comicBasic:ComicBasic)->Bool{
+    func insert(comicBasic:BasicComic)->Bool{
         var ok = false
         if openDB(){
             //kiem tra su ton tai cua bang
@@ -93,7 +93,7 @@ class Database {
     
     
     //2. Lay tat ca ban ghi
-    func getAllBookmark(bookmarks: inout [ComicBasic]){
+    func getAllBookmark(bookmarks: inout [BasicComic]){
         if openDB(){
             let sql = "SELECT * FROM \(BOOKMARK_TABLE_NAME) ORDER BY \(BOOKMARK_COLUMN_ID) ASC"
 
@@ -110,7 +110,7 @@ class Database {
                 let thumb = results!.string(forColumn: BOOKMARK_COLUMN_THUMB)!
                 let endpoint = results!.string(forColumn: BOOKMARK_COLUMN_ENDPOINT)!
                 
-                let comicBasic = ComicBasic(title: title, thumb: thumb,endpoint: endpoint)
+                let comicBasic = BasicComic(title: title, thumb: thumb, type: "",endpoint: endpoint)
                 bookmarks.append(comicBasic)
             }
             closeDB()

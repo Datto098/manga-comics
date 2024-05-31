@@ -68,6 +68,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     }
 
 
+
     // Tra ve vỉew controller truoc do
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -91,8 +92,4 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         let after = index + 1
         return myControllers[after]
     }
-    
-    
-   
 }
-
