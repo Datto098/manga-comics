@@ -8,6 +8,11 @@
 import UIKit
 
 class MangaCell: UITableViewCell {
+    
+    @IBOutlet weak var thumb: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    
+    var onTap:UITapGestureRecognizer?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +22,17 @@ class MangaCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
+        //thuc hien uy quyen
+        if onTap != nil {
+            onTap?.delegate = self
+        }
+        
+    }
+    
+    //Dinh nghia ham uy quyen choi doi tuong gesture reconigerz
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return (touch.view == self.contentView)
     }
 
 }

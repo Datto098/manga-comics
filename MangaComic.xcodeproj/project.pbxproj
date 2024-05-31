@@ -10,9 +10,6 @@
 		890029C42BFDF9F500DB1BA1 /* ComicLayoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890029C32BFDF9F500DB1BA1 /* ComicLayoutCollectionViewCell.swift */; };
 		890029C62BFDFA3C00DB1BA1 /* ComicLayoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890029C52BFDFA3C00DB1BA1 /* ComicLayoutTableViewCell.swift */; };
 		890029C82BFDFC3D00DB1BA1 /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890029C72BFDFC3D00DB1BA1 /* ComicData.swift */; };
-		89134EF02C045FB800AA59E5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 89134EEF2C045FB800AA59E5 /* Kingfisher */; };
-		89134EF22C045FD800AA59E5 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 89134EF12C045FD800AA59E5 /* SkeletonView */; };
-		89134EF42C045FFF00AA59E5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 89134EF32C045FFF00AA59E5 /* Lottie */; };
 		891CF6E02C00C8DB004FF902 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 891CF6DF2C00C8DB004FF902 /* Alamofire */; };
 		891CF6E22C00C8E0004FF902 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 891CF6E12C00C8E0004FF902 /* AlamofireDynamic */; };
 		891CF6E32C00C8E0004FF902 /* AlamofireDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 891CF6E12C00C8E0004FF902 /* AlamofireDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -22,6 +19,11 @@
 		8925D3662C016F8000434B50 /* ComicDataByGenresApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8925D3652C016F8000434B50 /* ComicDataByGenresApiResponse.swift */; };
 		893740802BFC98A30082E198 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937407F2BFC98A30082E198 /* HomeController.swift */; };
 		893740842BFCA6050082E198 /* SlideControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893740832BFCA6050082E198 /* SlideControllerCollectionViewCell.swift */; };
+		893963D12C09F3E300011E0A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 893963D02C09F3E300011E0A /* Kingfisher */; };
+		893963D42C09F41C00011E0A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 893963D32C09F41C00011E0A /* SkeletonView */; };
+		893963D62C09F45A00011E0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 893963D52C09F45A00011E0A /* Alamofire */; };
+		893963D82C09F45A00011E0A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 893963D72C09F45A00011E0A /* AlamofireDynamic */; };
+		893963DA2C09F48A00011E0A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 893963D92C09F48A00011E0A /* Lottie */; };
 		895B9AE92C0237F4008C4BC5 /* ChapterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B9AE22C0237F4008C4BC5 /* ChapterResponse.swift */; };
 		895B9AEA2C0237F4008C4BC5 /* MangaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B9AE32C0237F4008C4BC5 /* MangaAPI.swift */; };
 		895B9AEB2C0237F4008C4BC5 /* MangaAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B9AE42C0237F4008C4BC5 /* MangaAPIError.swift */; };
@@ -52,8 +54,6 @@
 		895B9B412C024098008C4BC5 /* BasicComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B9B402C024098008C4BC5 /* BasicComic.swift */; };
 		8989D71D2BFE395000C439FF /* ComicsApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989D71C2BFE395000C439FF /* ComicsApiResponse.swift */; };
 		8989D71F2BFE39CA00C439FF /* ComicDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989D71E2BFE39CA00C439FF /* ComicDataResponse.swift */; };
-		89B6A48D2C045F660082CC68 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89B6A48C2C045F660082CC68 /* Alamofire */; };
-		89B6A48F2C045F660082CC68 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 89B6A48E2C045F660082CC68 /* AlamofireDynamic */; };
 		89BD6DF62BFC585500BA1618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF52BFC585500BA1618 /* AppDelegate.swift */; };
 		89BD6DF82BFC585500BA1618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF72BFC585500BA1618 /* SceneDelegate.swift */; };
 		89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD6DF92BFC585500BA1618 /* ViewController.swift */; };
@@ -68,6 +68,10 @@
 		B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CB2BFCE2E200C927FF /* FMDatabase.m */; };
 		B67814D12BFCE2E200C927FF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */; };
 		B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */; };
+		CC391CB12BFE5D9D00A71DD0 /* PageReadMangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC391CB02BFE5D9D00A71DD0 /* PageReadMangeController.swift */; };
+		CC6A514A2C0197DE00161D0F /* BookmarkMangaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A51492C0197DE00161D0F /* BookmarkMangaTableViewController.swift */; };
+		CC715F2F2C021FA200E7F41D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC715F2E2C021FA200E7F41D /* Database.swift */; };
+		CC7665152BFE37C50060E1A7 /* DetailMangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7665142BFE37C50060E1A7 /* DetailMangaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,9 +119,9 @@
 		890029C32BFDF9F500DB1BA1 /* ComicLayoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicLayoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		890029C52BFDFA3C00DB1BA1 /* ComicLayoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicLayoutTableViewCell.swift; sourceTree = "<group>"; };
 		890029C72BFDFC3D00DB1BA1 /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComicData.swift; path = MangaComic/Models/ComicData.swift; sourceTree = SOURCE_ROOT; };
-		89134EEC2C045F9A00AA59E5 /* MangaComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		89134EED2C045F9A00AA59E5 /* MangaComicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaComicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89134EEE2C045F9A00AA59E5 /* MangaComicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaComicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89134EEC2C045F9A00AA59E5 /* MangaComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MangaComic.app; path = "/Users/dattodev/Desktop/resolve_conflict/manga-comics/build/Debug-iphoneos/MangaComic.app"; sourceTree = "<absolute>"; };
+		89134EED2C045F9A00AA59E5 /* MangaComicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MangaComicTests.xctest; path = "/Users/dattodev/Desktop/resolve_conflict/manga-comics/build/Debug-iphoneos/MangaComic.app/PlugIns/MangaComicTests.xctest"; sourceTree = "<absolute>"; };
+		89134EEE2C045F9A00AA59E5 /* MangaComicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MangaComicUITests.xctest; path = "/Users/dattodev/Desktop/resolve_conflict/manga-comics/build/Debug-iphoneos/MangaComicUITests-Runner.app/PlugIns/MangaComicUITests.xctest"; sourceTree = "<absolute>"; };
 		8925D35F2C016A9E00434B50 /* ComicGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComicGenres.swift; path = MangaComic/Models/ComicGenres.swift; sourceTree = SOURCE_ROOT; };
 		8925D3612C016B5100434B50 /* ComicGenresApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComicGenresApiResponse.swift; path = MangaComic/Models/ComicGenresApiResponse.swift; sourceTree = SOURCE_ROOT; };
 		8925D3632C016ECE00434B50 /* ComicDataByGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComicDataByGenres.swift; path = MangaComic/Models/ComicDataByGenres.swift; sourceTree = SOURCE_ROOT; };
@@ -176,6 +180,10 @@
 		B67814CB2BFCE2E200C927FF /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = MangaComic/FMDB/src/FMDatabase.m; sourceTree = SOURCE_ROOT; };
 		B67814CC2BFCE2E200C927FF /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = MangaComic/FMDB/src/FMDatabaseAdditions.m; sourceTree = SOURCE_ROOT; };
 		B67814CD2BFCE2E200C927FF /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = MangaComic/FMDB/src/FMDatabasePool.m; sourceTree = SOURCE_ROOT; };
+		CC391CB02BFE5D9D00A71DD0 /* PageReadMangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReadMangeController.swift; sourceTree = "<group>"; };
+		CC6A51492C0197DE00161D0F /* BookmarkMangaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkMangaTableViewController.swift; sourceTree = "<group>"; };
+		CC715F2E2C021FA200E7F41D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = SOURCE_ROOT; };
+		CC7665142BFE37C50060E1A7 /* DetailMangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMangaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,11 +191,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89134EF42C045FFF00AA59E5 /* Lottie in Frameworks */,
-				89134EF22C045FD800AA59E5 /* SkeletonView in Frameworks */,
-				89134EF02C045FB800AA59E5 /* Kingfisher in Frameworks */,
-				89B6A48D2C045F660082CC68 /* Alamofire in Frameworks */,
-				89B6A48F2C045F660082CC68 /* AlamofireDynamic in Frameworks */,
+				893963DA2C09F48A00011E0A /* Lottie in Frameworks */,
+				893963D62C09F45A00011E0A /* Alamofire in Frameworks */,
+				893963D82C09F45A00011E0A /* AlamofireDynamic in Frameworks */,
+				893963D42C09F41C00011E0A /* SkeletonView in Frameworks */,
+				893963D12C09F3E300011E0A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +282,6 @@
 				89BD6DF42BFC585500BA1618 /* MangaComic */,
 				89BD6E0B2BFC585800BA1618 /* MangaComicTests */,
 				89BD6E152BFC585800BA1618 /* MangaComicUITests */,
-				89134EEC2C045F9A00AA59E5 /* MangaComic.app */,
-				89134EED2C045F9A00AA59E5 /* MangaComicTests.xctest */,
-				89134EEE2C045F9A00AA59E5 /* MangaComicUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,6 +349,9 @@
 				895B9B012C023819008C4BC5 /* TextViewController.swift */,
 				895B9B022C023819008C4BC5 /* ViewController.swift */,
 				89BD6DF92BFC585500BA1618 /* ViewController.swift */,
+				CC7665142BFE37C50060E1A7 /* DetailMangaViewController.swift */,
+				CC391CB02BFE5D9D00A71DD0 /* PageReadMangeController.swift */,
+				CC6A51492C0197DE00161D0F /* BookmarkMangaTableViewController.swift */,
 				8937407F2BFC98A30082E198 /* HomeController.swift */,
 			);
 			path = Controllers;
@@ -388,6 +396,7 @@
 		B67814D32BFCE2E600C927FF /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				CC715F2E2C021FA200E7F41D /* Database.swift */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -410,11 +419,11 @@
 			);
 			name = MangaComic;
 			packageProductDependencies = (
-				89B6A48C2C045F660082CC68 /* Alamofire */,
-				89B6A48E2C045F660082CC68 /* AlamofireDynamic */,
-				89134EEF2C045FB800AA59E5 /* Kingfisher */,
-				89134EF12C045FD800AA59E5 /* SkeletonView */,
-				89134EF32C045FFF00AA59E5 /* Lottie */,
+				893963D02C09F3E300011E0A /* Kingfisher */,
+				893963D32C09F41C00011E0A /* SkeletonView */,
+				893963D52C09F45A00011E0A /* Alamofire */,
+				893963D72C09F45A00011E0A /* AlamofireDynamic */,
+				893963D92C09F48A00011E0A /* Lottie */,
 			);
 			productName = MangaComic;
 			productReference = 89134EEC2C045F9A00AA59E5 /* MangaComic.app */;
@@ -498,7 +507,8 @@
 				89F842972BFF095000EF5419 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				896116F92BFF815D00C405AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				895B9B3B2C023F02008C4BC5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				895B9B422C024196008C4BC5 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				895B9B422C024196008C4BC5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				893963D22C09F41C00011E0A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 89BD6DE92BFC585500BA1618;
 			projectDirPath = "";
@@ -544,6 +554,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6A514A2C0197DE00161D0F /* BookmarkMangaTableViewController.swift in Sources */,
+				CC391CB12BFE5D9D00A71DD0 /* PageReadMangeController.swift in Sources */,
+				89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */,
+				CC7665152BFE37C50060E1A7 /* DetailMangaViewController.swift in Sources */,
 				89BD6DFA2BFC585500BA1618 /* ViewController.swift in Sources */,
 				B67814CE2BFCE2E200C927FF /* FMDatabaseQueue.m in Sources */,
 				893740842BFCA6050082E198 /* SlideControllerCollectionViewCell.swift in Sources */,
@@ -568,6 +582,9 @@
 				895B9B0B2C023819008C4BC5 /* HomeControllerViewController.swift in Sources */,
 				8925D3662C016F8000434B50 /* ComicDataByGenresApiResponse.swift in Sources */,
 				B67814D02BFCE2E200C927FF /* FMDatabase.m in Sources */,
+				CC715F2F2C021FA200E7F41D /* Database.swift in Sources */,
+				89BD6DF82BFC585500BA1618 /* SceneDelegate.swift in Sources */,
+				B67814D22BFCE2E200C927FF /* FMDatabasePool.m in Sources */,
 				895B9B0E2C023819008C4BC5 /* ProfileController.swift in Sources */,
 				895B9AED2C0237F4008C4BC5 /* MangaPage.swift in Sources */,
 				895B9B282C023888008C4BC5 /* ComicCell.swift in Sources */,
@@ -697,7 +714,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -754,7 +771,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -937,6 +954,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		893963D22C09F41C00011E0A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 		895B9B3B2C023F02008C4BC5 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -945,12 +970,12 @@
 				minimumVersion = 4.4.3;
 			};
 		};
-		895B9B422C024196008C4BC5 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+		895B9B422C024196008C4BC5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.31.0;
+				minimumVersion = 7.11.0;
 			};
 		};
 		896116F92BFF815D00C405AF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -972,21 +997,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		89134EEF2C045FB800AA59E5 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 89F842972BFF095000EF5419 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		89134EF12C045FD800AA59E5 /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 895B9B422C024196008C4BC5 /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
-		};
-		89134EF32C045FFF00AA59E5 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 895B9B3B2C023F02008C4BC5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
 		891CF6DF2C00C8DB004FF902 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 896116F92BFF815D00C405AF /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -997,15 +1007,30 @@
 			package = 896116F92BFF815D00C405AF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
 		};
-		89B6A48C2C045F660082CC68 /* Alamofire */ = {
+		893963D02C09F3E300011E0A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89F842972BFF095000EF5419 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		893963D32C09F41C00011E0A /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 893963D22C09F41C00011E0A /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		893963D52C09F45A00011E0A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 896116F92BFF815D00C405AF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		89B6A48E2C045F660082CC68 /* AlamofireDynamic */ = {
+		893963D72C09F45A00011E0A /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 896116F92BFF815D00C405AF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		893963D92C09F48A00011E0A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 895B9B3B2C023F02008C4BC5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
