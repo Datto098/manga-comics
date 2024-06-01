@@ -14,7 +14,6 @@ import Alamofire
 
 
 class HomeController: UIViewController {
-    
 
     // MARK: Properties
     @IBOutlet weak var bannerSlideCollectionView: UICollectionView!

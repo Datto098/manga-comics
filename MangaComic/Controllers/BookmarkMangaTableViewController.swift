@@ -11,11 +11,16 @@ class BookmarkMangaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated(_:)), name: Notification.Name("dataUpdate"), object: nil)
         navigation.leftBarButtonItem = editButtonItem
         dao.getAllBookmark(bookmarks: &bookmarkedMangas)
-        
     }
+    
+    @objc func dataUpdated(_ notification: Notification) {
+            bookmarkedMangas.removeAll()
+            dao.getAllBookmark(bookmarks: &bookmarkedMangas)
+            tableView.reloadData()
+        }
 
     // MARK: - Table view data source
 
@@ -36,7 +41,7 @@ class BookmarkMangaTableViewController: UITableViewController {
         // Configure the cell...
         let manga = bookmarkedMangas[indexPath.row]
         cell.title.text = manga.title
-        cell.thumb.kf.setImage(with: URL(string: manga.thumb))
+        cell.thumb.kf.setImage(with: URL(string: manga.thumb), placeholder: UIImage(named: "plaholder"))
         
         //Bo sung cho bat su kien theo cach 1
             if cell.onTap == nil {

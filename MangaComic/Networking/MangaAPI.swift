@@ -4,11 +4,8 @@ import os
 
 class MangaAPI {
     
-    //design pattern: Singleton
-    static let shared = MangaAPI()
-    
     // function get list infor in one chapter
-    func getPagesMangaWithNumberChapter(endPoint: String, completion: @escaping ([MangaPage]) -> Void) {
+    static func getPagesMangaWithNumberChapter(endPoint: String, completion: @escaping ([MangaPage]) -> Void) {
         let url = "http://localhost:5000/manga/chapter/\(endPoint)" // Thay bằng URL API thực tế
         AF.request(url).responseDecodable(of: ChapterResponse.self) { response in
             switch response.result {
@@ -25,7 +22,7 @@ class MangaAPI {
     }
     
     //function get manga detail
-    func getMangaDetail(endPoint: String, completion: @escaping (MangaDetail) -> Void) {
+    static func getMangaDetail(endPoint: String, completion: @escaping (MangaDetail) -> Void) {
         let url = "http://localhost:5000/manga/detail/\(endPoint)" // Thay bằng URL API thực tế
         AF.request(url).responseDecodable(of: MangaDetail.self) { response in
             switch response.result {

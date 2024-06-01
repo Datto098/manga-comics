@@ -36,7 +36,9 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
             return
         }
         
-        MangaAPI.shared.getMangaDetail(endPoint: endPoint){
+        
+        
+        MangaAPI.getMangaDetail(endPoint: endPoint){
             mangaDetail in
             DispatchQueue.main.async {
                
@@ -80,6 +82,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
                 if (ok){
                     sender.isEnabled = false
                     sender.backgroundColor = .gray
+                    NotificationCenter.default.post(name: Notification.Name("dataUpdate"), object: nil)
                 }
             }
             
@@ -141,7 +144,7 @@ class DetailMangaViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MangaChapterCell") as? MangaChapterCell else {
-            return MangaChapterCell()
+            fatalError("Could not dequeue MangaChapterCell")
         }
         
         let chapter = chapters[indexPath.row]

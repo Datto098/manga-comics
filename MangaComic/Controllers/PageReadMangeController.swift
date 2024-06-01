@@ -16,6 +16,12 @@ class PageReadMangeController: UIPageViewController,UIPageViewControllerDelegate
     private var mangaPages = [MangaPage]()
     var currentImageId = 0;
     
+
+    //init
+    required init?(coder: NSCoder) {
+        super.init(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,44 +30,60 @@ class PageReadMangeController: UIPageViewController,UIPageViewControllerDelegate
         view.backgroundColor = .black
         //set title
         self.title = chapter.title
-        
         self.dataSource = self
         self.delegate = self
+       
         
         let endPoint = chapter.endpoint.split(separator: "/").last?.trimmingCharacters(in: .whitespacesAndNewlines)
-        print("endPoint: \(String(describing: endPoint))")
+        //print("endPoint: \(String(describing: endPoint))")
         //endPoint = "one-piece-chapter-00"
 
-        MangaAPI.shared.getPagesMangaWithNumberChapter(endPoint: endPoint!) { pages in
+        MangaAPI.getPagesMangaWithNumberChapter(endPoint: endPoint!) { pages in
             self.mangaPages = pages
             // Cập nhật UI trên main thread (DispatchQueue.main.async)
-            for page in self.mangaPages {
-                let vc = UIViewController()
-                vc.view.backgroundColor = .white
-                let imageView = UIImageView()
-                imageView.kf.setImage(with: URL(string: page.chapterImageLink),placeholder: UIImage(named: "placeholder"))
-                // os_log("Image link: %@", page.chapterImageLink)
-                
-                //set imageview possision X = 50
-                imageView.frame = CGRect(x: 0, y: 100, width: vc.view.frame.width - 100, height: (vc.view.frame.height - 200))
-                //center imageview
-                imageView.center = vc.view.center
-                
-                imageView.contentMode = .scaleAspectFit
-                vc.view.addSubview(imageView)
-                self.myControllers.append(vc)
-                
-            }
-           
-            
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                self.view.isSkeletonable = false
-                self.view.hideSkeleton()
-                guard let first = self.myControllers.first else {
-                    return
+            if pages.count == 0{
+                let alertController = UIAlertController(
+                    title: "Thông báo",
+                    message: "Truyện đang được cập nhật.",
+                    preferredStyle: .alert // Hoặc .actionSheet cho kiểu khác
+                )
+
+                let cancelAction = UIAlertAction(title: "Hủy", style: .cancel) { _ in
+                    self.dismiss(animated: true, completion: nil)
                 }
-                self.setViewControllers([self.myControllers[self.currentImageId]],direction: .forward, animated: true, completion: nil)
+                alertController.addAction(cancelAction)
+
+                // Hiển thị dialog
+                self.present(alertController, animated: true, completion: nil)
             }
+            else{
+                for page in self.mangaPages {
+                    let vc = UIViewController()
+                    vc.view.backgroundColor = .white
+                    let imageView = UIImageView()
+                    imageView.kf.setImage(with: URL(string: page.chapterImageLink),placeholder: UIImage(named: "commic-ic"))
+                    // os_log("Image link: %@", page.chapterImageLink)
+                    
+                    //set imageview possision X = 50
+                    imageView.frame = CGRect(x: 0, y: 100, width: vc.view.frame.width - 100, height: (vc.view.frame.height - 200))
+                    //center imageview
+                    imageView.center = vc.view.center
+                    imageView.contentMode = .scaleAspectFit
+                    vc.view.addSubview(imageView)
+                    self.myControllers.append(vc)
+                    
+                }
+               
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.view.isSkeletonable = false
+                    self.view.hideSkeleton()
+                    if let first = self.myControllers.first {
+                        self.setViewControllers([first], direction: .forward, animated: true, completion: nil)
+                    }
+                }
+            }
+            
             
         }
     }
