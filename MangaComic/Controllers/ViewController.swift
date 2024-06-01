@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MangaAPI.shared.getPagesMangaWithNumberChapter(endPoint: "martial-peak-chapter-3") { pages in
+        MangaAPI.getPagesMangaWithNumberChapter(endPoint: "martial-peak-chapter-3") { pages in
             self.mangaPages = pages
            
             // Cập nhật UI trên main thread (DispatchQueue.main.async)
