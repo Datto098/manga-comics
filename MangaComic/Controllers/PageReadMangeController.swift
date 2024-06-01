@@ -76,15 +76,14 @@ class PageReadMangeController: UIPageViewController,UIPageViewControllerDelegate
                
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    self.view.isSkeletonable = false
-                    self.view.hideSkeleton()
-                    if let first = self.myControllers.first {
-                        self.setViewControllers([first], direction: .forward, animated: true, completion: nil)
-                    }
+                                self.view.isSkeletonable = false
+                                self.view.hideSkeleton()
+                                guard let first = self.myControllers.first else {
+                                    return
+                            }
+                    self.setViewControllers([self.myControllers[self.currentImageId]],direction: .forward, animated: true, completion: nil)
                 }
             }
-            
-            
         }
     }
     // Lưu chapter
